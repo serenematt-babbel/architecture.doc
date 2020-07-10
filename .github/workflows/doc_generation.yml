@@ -1,0 +1,13 @@
+name: Generate png from puml files
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Create/remove png files
+         run: ruby ./scripts/puml_to_png_convertor.rb
