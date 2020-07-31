@@ -1,7 +1,11 @@
-@startuml Hello World
-skinparam Style strictuml
-skinparam
-SequenceMessageAlignment center
-A -> B : Hello world
-A <- B : Hi
+@startuml Langing Pages
+
+!define AWSPUML https://raw.githubusercontent.com/milo-minderbinder/AWS-PlantUML/release/18-2-22/dist
+!includeurl AWSPUML/common.puml
+!includeurl AWSPUML/NetworkingContentDelivery/AmazonCloudFront/AmazonCloudFront.puml
+
+AMAZONCLOUDFRONT(cloudfront)
+
+[apps / de / es / fr / it / pl / pt / se / uk / www.babbel.com] --> cloudfront
+
 @enduml
