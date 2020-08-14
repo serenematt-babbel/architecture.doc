@@ -6,6 +6,7 @@
 
 AMAZONCLOUDFRONT(cloudfront)
 
-[apps / de / es / fr / it / pl / pt / se / uk / www.babbel.com] --> cloudfront
+[apps / de / es / fr / it / pl / pt / se / uk / www.babbel.com] --> Web
+Web --> cloudfront
 
 @enduml
