@@ -3,10 +3,20 @@
 !define AWSPUML https://raw.githubusercontent.com/milo-minderbinder/AWS-PlantUML/release/18-2-22/dist
 !includeurl AWSPUML/common.puml
 !includeurl AWSPUML/NetworkingContentDelivery/AmazonCloudFront/AmazonCloudFront.puml
+!includeurl AWSPUML/ApplicationServices/AmazonAPIGateway/AmazonAPIGateway.puml
+!includeurl AWSPUML/Compute/AWSLambda/AWSLambda.puml
+!includeurl AWSPUML/Analytics/AmazonKinesis/AmazonKinesisStreams/AmazonKinesisStreams.puml
 
 AMAZONCLOUDFRONT(cloudfront)
+AMAZONAPIGATEWAY(apigateway)
+AWSLAMBDA(lambda)
+AMAZONKINESISSTREAMS(kinesisstreams)
 
-[apps / de / es / fr / it / pl / pt / se / uk / www.babbel.com] --> Web
-Web --> cloudfront
+[apps / de / es / fr / it / pl / pt / se / uk / www.babbel.com] --> cloudfront
+cloudfront --> apigateway
+apigateway --> lambda
+lambda <--> [accounts-elb.babbel.com]
+lambda <--> kinesisstreams
+lambda <--> [AB-Tester lambda]
 
 @enduml

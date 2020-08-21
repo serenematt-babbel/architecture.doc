@@ -9,5 +9,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Create/remove png files
+      - name: Generate architecture document
          run: ruby ./scripts/puml_to_png_convertor.rb
