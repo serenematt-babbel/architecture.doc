@@ -8,15 +8,17 @@
 !includeurl AWSPUML/Analytics/AmazonKinesis/AmazonKinesisStreams/AmazonKinesisStreams.puml
 
 AMAZONCLOUDFRONT(cloudfront)
-AMAZONAPIGATEWAY(apigateway)
-AWSLAMBDA(lambda)
+AMAZONAPIGATEWAY(apigateway, "static.apigateway")
+AWSLAMBDA(static_lambda, "static.lambda")
+AWSLAMBDA(cms_connected_lambda, "cms-connected.lambda")
 AMAZONKINESISSTREAMS(kinesisstreams)
 
 [apps / de / es / fr / it / pl / pt / se / uk / www.babbel.com] --> cloudfront
 cloudfront --> apigateway
-apigateway --> lambda
-lambda <--> [accounts-elb.babbel.com]
-lambda <--> kinesisstreams
-lambda <--> [AB-Tester lambda]
+apigateway --> static_lambda
+static_lambda <--> [accounts-elb.babbel.com]
+static_lambda <--> kinesisstreams
+static_lambda <--> [AB-Tester lambda]
+static_lambda <--> cms_connected_lambda
 
 @enduml

@@ -1,7 +1,7 @@
 class PumlMetaData
 
   def initialize
-    @filename = 'docs/example.plantuml'
+    @filename = 'docs/architecture.plantuml'
     convert_to_png
   end
 

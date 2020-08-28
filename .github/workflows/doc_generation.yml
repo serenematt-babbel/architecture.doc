@@ -10,4 +10,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Generate architecture document
-         run: ruby ./scripts/puml_to_png_convertor.rb
+        run: ruby ./scripts/puml_to_png_convertor.rb
